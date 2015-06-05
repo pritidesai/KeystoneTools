@@ -1,0 +1,20 @@
+{
+   "config": {
+    "identity": {
+      "driver": "keystone.identity.backends.ldap.Identity"
+    },
+    "ldap": {
+      "suffix": "<suffix>",
+      "url": "<url>",
+      "user_id_attribute": "uid",
+      "user_attribute_ignore": "enabled,email,tenants,default_project_id",
+      "user_tree_dn": "<user_tree_dn>",
+      "user": "<user>",
+      "password": "<password>",
+      "user_filter": "<user_filter>",
+      "query_scope": "sub",
+      "use_tls": "true",
+      "tls_cacertfile": "<certfile>"
+    }
+  }
+}
