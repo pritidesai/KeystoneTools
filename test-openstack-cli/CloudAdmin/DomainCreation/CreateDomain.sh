@@ -51,7 +51,7 @@ fi
 
 DOMAIN_ID=$(openstack domain show $NEW_DOMAIN_NAME -f value -c id)
 
-curl -sX PATCH $OS_AUTH_URL/domains/$DOMAIN_ID/config -H "X-Auth-Token: $OS_TOKEN" -H "Content-type: application/json" -d'@CloudAdmin/DomainCreation/Domain.json' | jq .
+curl -sX PATCH $OS_AUTH_URL/domains/$DOMAIN_ID/config -H "X-Auth-Token: $OS_TOKEN" -H "Content-type: application/json" -d'@Domain.json' | jq .
 
 DOMAIN_ADMIN_ID=`curl -sX GET -H "X-Auth-Token: ${OS_TOKEN}" "${OS_AUTH_URL}/users?domain_id=${DOMAIN_ID}" | jq .users | jq "map(select(.name==\"$DOMAIN_ADMIN\")) | .[].id" | tr -d '"'`
 
