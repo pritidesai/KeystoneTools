@@ -45,7 +45,7 @@ OS_TOKEN=$(openstack token issue --os-username $OS_USERNAME -f value -c id)
 
 STDOUT=$(openstack domain list | grep $NEW_DOMAIN_NAME)
 
-if [[ ! "$STDOUT" =~ "" ]]; then
+if [[ "$STDOUT" =~ "" ]]; then
     openstack domain create $NEW_DOMAIN_NAME --description "Domain created for $NEW_DOMAIN_NAME"
 fi
 
